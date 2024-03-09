@@ -34,7 +34,12 @@ class CustomerController extends BaseController
         $insert=DB::insert("insert into customer (name,email,contact) values (:name,:email,:contact)",['name'=>$name,'email'=>$email,'contact'=>$contact]);
         
         
-        return $insert;
+        if($inserted){
+            return "Insert successfull";
+        }else{
+            return "insert Failed";
+        }
+      
     }
 
    
