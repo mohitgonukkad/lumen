@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Laravel\Lumen\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 
 class CustomerController extends BaseController
 {
@@ -14,6 +15,7 @@ class CustomerController extends BaseController
 
         return response()->json($result);
     }
+
     public function ShowOne($id, $info="*")
     {
 
@@ -22,4 +24,18 @@ class CustomerController extends BaseController
         return response()->json($result);
 
     }
+
+    public function Create(Request $request){
+
+        $name=$request->input('name');
+        $email=$request->input('email');
+        $contact=$request->input('contact');
+
+        $insert=DB::insert("insert into customer (name,email,contact) values (:name,:email,:contact)",['name'=>$name,'email'=>$email,'contact'=>$contact]);
+        
+        
+        return $insert;
+    }
+
+   
 }

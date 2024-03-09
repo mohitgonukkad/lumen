@@ -26,6 +26,8 @@ $router->get('/', function () use ($router) {
 $router->get('/customer', 'CustomerController@ShowAll');
 $router->get('/customer/{id}[/{info}]', 'CustomerController@ShowOne');
 
+$router->post('/customer/create','CustomerController@Create');
+
 
 
 
