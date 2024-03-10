@@ -23,7 +23,7 @@ $router->get('/', function () use ($router) {
     return 'Hello';
 });
 
-$router->get('/customer', 'CustomerController@ShowAll');
+$router->get('/customer', 'CustomerController@Index');
 $router->get('/customer/{id}[/{info}]', 'CustomerController@ShowOne');
 
 $router->post('/customer/create','CustomerController@Create');
